@@ -1,61 +1,75 @@
 ﻿using Xunit;
 
-namespace Hoonisone.ValueContainer.Container.Tests
+namespace Hoonisone.ValueContainer2.Container.Tests
 {
-    public class MinMaxCVTests
+    public class MinMaxVCTests
     {
         [Theory]
-        [InlineData(-1,  1)]
-        public void MinMaxValueTest(int min, int max)
+        [InlineData(-1, 1)]
+        public void ConstraintsSettingTest(int min, int max) // 제약조건을 제대로 세팅하는가?
         {
-            ConstraintValueContainer<int> vc = new MinMaxVC<int>(min, max);
+            ConstrainedVC<int> vc = new MinMaxVC<int>(min, max, min);
             Assert.True(((MinMaxVC<int>)vc).min == min);
             Assert.True(((MinMaxVC<int>)vc).max == max);
         }
 
         [Theory]
         [InlineData(0, 10, -1, true)]
-        [InlineData(0, 10,  0, false)]
-        [InlineData(0, 10,  5, false)]
+        [InlineData(0, 10, 0, false)]
+        [InlineData(0, 10, 5, false)]
         [InlineData(0, 10, 10, false)]
         [InlineData(0, 10, 11, true)]
-        public void ValueConstraintErrorTest(int min, int max, int value, bool error)
+        public void ViolationInitErrorTest(int min, int max, int value, bool error) // 위배된 초기화 시 에러가 발생하는가?
         {
-            // 잘못된 값을 넣으면 에러를 발생하는지 테스트
+            bool e = Test.IsErrorOccur(() => {
+                ConstrainedVC<int> vc = new MinMaxVC<int>(min, max, value);
+            });
+            Assert.True(e == error);
+        }
 
-            ConstraintValueContainer<int> vc = new MinMaxVC<int>(min, max);
-            bool e = false; // 에러 발생 여부
-            try
-            {
-                vc.value = value;
-            }
-            catch (System.Exception)
-            {
-                e = true;
-            }
+        [Theory]
+        [InlineData(0, 10, -1, true)]
+        [InlineData(0, 10, 0, false)]
+        [InlineData(0, 10, 5, false)]
+        [InlineData(0, 10, 10, false)]
+        [InlineData(0, 10, 11, true)]
+        public void ViolationSetErrorTest(int min, int max, int value, bool error) // 위배된 값 세팅 시 에러가 발생하는가?
+        {
+            bool e = Test.IsErrorOccur(() => {
+                ConstrainedVC<int> vc = new MinMaxVC<int>(min, max, min);
+                vc.v = value;
+            });
             Assert.True(e == error);
         }
 
         [Theory]
         [InlineData(0, 10, -1, false)]
-        [InlineData(0, 10,  0, false)]
-        [InlineData(0, 10,  5, false)]
+        [InlineData(0, 10, 0, false)]
+        [InlineData(0, 10, 5, false)]
         [InlineData(0, 10, 10, false)]
         [InlineData(0, 10, 11, false)]
-        public void ValueConstraintHandlingTest(int min, int max, int value, bool error)
+        public void InitViolationHandlingTest(int min, int max, int value, bool error)// 위배된 초기화 시 핸들링되는가?
         {
-            // 잘못된 값을 넣어도 적절히 핸들링하여 값을 수정한 뒤 저장해주는지 테스트
-            ConstraintValueContainer<int> vc = new MinMaxVC<int>(min, max, true);
-            bool e = false; // 에러 발생 여부
-            try
-            {
-                vc.value = value;
-            }
-            catch (System.Exception)
-            {
-                e = true;
-            }
+            bool e = Test.IsErrorOccur(() => { ConstrainedVC<int> vc = new MinMaxVC<int>(min, max, value, true); });
             Assert.True(e == error);
         }
+
+        [Theory]
+        [InlineData(0, 10, -1, false)]
+        [InlineData(0, 10, 0, false)]
+        [InlineData(0, 10, 5, false)]
+        [InlineData(0, 10, 10, false)]
+        [InlineData(0, 10, 11, false)]
+        public void SetViolationHandlingTest(int min, int max, int value, bool error)// 위배된 값 세팅 시 핸들링 되는가?
+        {
+            bool e = Test.IsErrorOccur(() =>
+            {
+                ConstrainedVC<int> vc = new MinMaxVC<int>(min, max, min, true);
+                vc.v = value;
+            });
+            Assert.True(e == error);
+        }
+
+        
     }
 }

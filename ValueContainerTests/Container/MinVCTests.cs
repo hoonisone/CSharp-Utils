@@ -1,16 +1,16 @@
 ﻿using Xunit;
 
-namespace Hoonisone.ValueContainer.Container.Tests
+namespace Hoonisone.ValueContainer2.Container.Tests
 {
-    public class MinCVTests
+    public class MinVCTests
     {
         [Theory]
         [InlineData(-1)]
         [InlineData(0)]
         [InlineData(1)]
-        public void MinValueTest(int min)
+        public void ConstraintsSettingTest(int min)// 제약조건을 제대로 세팅하는가?
         {
-            ConstraintValueContainer<int> vc = new MinVC<int>(min);
+            ConstrainedVC<int> vc = new MinVC<int>(min, min);
             Assert.True(((MinVC<int>)vc).min == min);
         }
 
@@ -18,38 +18,50 @@ namespace Hoonisone.ValueContainer.Container.Tests
         [InlineData(0, -1, true)]
         [InlineData(0, 0, false)]
         [InlineData(0, 1, false)]
-        public void ValueConstraintErrorTest(int min, int value, bool error)
+        public void ViolationInitErrorTest(int min, int value, bool error)// 위배된 초기화 시 에러가 발생하는가?
         {
-            // 잘못된 값을 넣으면 에러를 발생하는지 테스트
+            bool e = Test.IsErrorOccur(() =>
+            {
+                ConstrainedVC<int> vc = new MinVC<int>(min, value);
+            });
+            Assert.True(e == error);
+        }
 
-            ConstraintValueContainer<int> vc = new MinVC<int>(min);
-            bool e = false; // 에러 발생 여부
-            try
+        [Theory]
+        [InlineData(0, -1, true)]
+        [InlineData(0, 0, false)]
+        [InlineData(0, 1, false)]
+        public void ViolationErrorTest(int min, int value, bool error)  // 위배된 값 세팅 시 에러가 발생하는가?
+        {
+            bool e = Test.IsErrorOccur(() =>
             {
-                vc.value = value;
-            }
-            catch (System.Exception)
+                ConstrainedVC<int> vc = new MinVC<int>(min, min);
+                vc.v = value;
+            });
+            Assert.True(e == error);
+        }
+
+
+        [Theory]
+        [InlineData(0, -1, false)]
+        public void ViolationInitHandlingTest(int min, int value, bool error) // 위배된 초기화 시 핸들링되는가?
+        {
+            bool e = Test.IsErrorOccur(() =>
             {
-                e = true;
-            }
+                ConstrainedVC<int> vc = new MinVC<int>(min, value, true);
+            });
             Assert.True(e == error);
         }
 
         [Theory]
         [InlineData(0, -1, false)]
-        public void ValueConstraintHandlingTest(int min, int value, bool error)
+        public void ViolationSetHandlingTest(int min, int value, bool error) // 위배된 값 세팅 시 핸들링 되는가?
         {
-            // 잘못된 값을 넣어도 적절히 핸들링하여 값을 수정한 뒤 저장해주는지 테스트
-            ConstraintValueContainer<int> vc = new MinVC<int>(min, true);
-            bool e = false; // 에러 발생 여부
-            try
+            bool e = Test.IsErrorOccur(() =>
             {
-                vc.value = value;
-            }
-            catch (System.Exception)
-            {
-                e = true;
-            }
+                ConstrainedVC<int> vc = new MinVC<int>(min, min, true);
+                vc.v = value;
+            });
             Assert.True(e == error);
         }
     }
