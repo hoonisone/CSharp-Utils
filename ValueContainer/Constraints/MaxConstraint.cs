@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 
-namespace Hoonisone.ValueContainer2
+namespace Hoonisone.ValueContainer.Constraint
 {
     public class MaxConstraint<T> : Constraint<T> where T : IComparable
     {

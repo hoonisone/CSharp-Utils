@@ -1,12 +1,13 @@
 ﻿using Xunit;
-using Hoonisone.ValueContainer2;
+using Hoonisone.ValueContainer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Hoonisone.ValueContainer.Constraint;
 
-namespace Hoonisone.ValueContainer2.Tests
+namespace Hoonisone.ValueContainer.Tests
 {
 
     public class MinMaxConstraintTests

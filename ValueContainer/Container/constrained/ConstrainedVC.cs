@@ -1,7 +1,8 @@
-﻿using Hoonisone.ValueContainer2;
+﻿using Hoonisone.ValueContainer;
+using Hoonisone.ValueContainer.Constraint;
 using System;
 
-namespace Hoonisone.ValueContainer2.Container
+namespace Hoonisone.ValueContainer.Container
 {
 
     public class ConstrainedVC<T> : EventVC<T> where T : IComparable

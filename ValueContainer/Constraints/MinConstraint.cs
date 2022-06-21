@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Hoonisone.ValueContainer2
+namespace Hoonisone.ValueContainer.Constraint
 {
     public class MinConstraint<T> : Constraint<T> where T : IComparable
     {

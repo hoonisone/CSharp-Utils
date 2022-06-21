@@ -1,4 +1,4 @@
-﻿namespace Hoonisone.ValueContainer2.Container
+﻿namespace Hoonisone.ValueContainer.Container
 {
     public class EventVC<T> : ValueContainer<T> where T : IComparable
     {

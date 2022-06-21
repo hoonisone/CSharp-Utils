@@ -1,4 +1,4 @@
-﻿namespace Hoonisone.ValueContainer2.Container.Tests
+﻿namespace Hoonisone.ValueContainer.Container.Tests
 {
 
     public class Test

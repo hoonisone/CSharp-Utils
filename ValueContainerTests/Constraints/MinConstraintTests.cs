@@ -1,6 +1,7 @@
-﻿using Xunit;
+﻿using Hoonisone.ValueContainer.Constraint;
+using Xunit;
 
-namespace Hoonisone.ValueContainer2.Tests
+namespace Hoonisone.ValueContainer.Tests
 {
     public class MinConstraintTests
     {

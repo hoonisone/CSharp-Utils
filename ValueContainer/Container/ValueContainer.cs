@@ -1,4 +1,4 @@
-﻿namespace Hoonisone.ValueContainer2.Container
+﻿namespace Hoonisone.ValueContainer.Container
 {
     public class ValueContainer<T> where T : IComparable
     {

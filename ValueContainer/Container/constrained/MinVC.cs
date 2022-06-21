@@ -1,7 +1,6 @@
-﻿using Hoonisone.ValueContainer2;
-using System;
+﻿using Hoonisone.ValueContainer.Constraint;
 
-namespace Hoonisone.ValueContainer2.Container
+namespace Hoonisone.ValueContainer.Container
 {
     public class MinVC<T> : ConstrainedVC<T> where T : IComparable
     {

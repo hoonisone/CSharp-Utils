@@ -1,7 +1,7 @@
 ﻿
 using System;
 
-namespace Hoonisone.ValueContainer2
+namespace Hoonisone.ValueContainer.Constraint
 {
     public abstract class Constraint<T>
     {
