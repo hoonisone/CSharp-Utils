@@ -1,0 +1,13 @@
+C:\workspace(MH)\CSharp Utils3\ValueContainer\bin\Release\net6.0\ValueContainer.deps.json
+C:\workspace(MH)\CSharp Utils3\ValueContainer\bin\Release\net6.0\ValueContainer.runtimeconfig.json
+C:\workspace(MH)\CSharp Utils3\ValueContainer\bin\Release\net6.0\ValueContainer.dll
+C:\workspace(MH)\CSharp Utils3\ValueContainer\bin\Release\net6.0\ref\ValueContainer.dll
+C:\workspace(MH)\CSharp Utils3\ValueContainer\bin\Release\net6.0\ValueContainer.pdb
+C:\workspace(MH)\CSharp Utils3\ValueContainer\obj\Release\net6.0\ValueContainer.GeneratedMSBuildEditorConfig.editorconfig
+C:\workspace(MH)\CSharp Utils3\ValueContainer\obj\Release\net6.0\ValueContainer.AssemblyInfoInputs.cache
+C:\workspace(MH)\CSharp Utils3\ValueContainer\obj\Release\net6.0\ValueContainer.AssemblyInfo.cs
+C:\workspace(MH)\CSharp Utils3\ValueContainer\obj\Release\net6.0\ValueContainer.csproj.CoreCompileInputs.cache
+C:\workspace(MH)\CSharp Utils3\ValueContainer\obj\Release\net6.0\ValueContainer.dll
+C:\workspace(MH)\CSharp Utils3\ValueContainer\obj\Release\net6.0\ref\ValueContainer.dll
+C:\workspace(MH)\CSharp Utils3\ValueContainer\obj\Release\net6.0\ValueContainer.pdb
+C:\workspace(MH)\CSharp Utils3\ValueContainer\obj\Release\net6.0\ValueContainer.genruntimeconfig.cache

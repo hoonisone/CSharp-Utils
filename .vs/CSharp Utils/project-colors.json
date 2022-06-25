@@ -1,0 +1,41 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "c0ff6d7e-61cd-420d-a970-bba0664c967f": {
+      "ProjectGuid": "c0ff6d7e-61cd-420d-a970-bba0664c967f",
+      "DisplayName": "ValueContainerTests",
+      "ColorIndex": 0
+    },
+    "98eb6826-e6ec-4d7c-8661-7a181f2bef89": {
+      "ProjectGuid": "98eb6826-e6ec-4d7c-8661-7a181f2bef89",
+      "DisplayName": "Player",
+      "ColorIndex": 1
+    },
+    "c4415344-9f97-4063-ba66-64ce44a62492": {
+      "ProjectGuid": "c4415344-9f97-4063-ba66-64ce44a62492",
+      "DisplayName": "PlayerTests",
+      "ColorIndex": 2
+    },
+    "f1aa7651-b55a-41ec-a308-45b45b3505d2": {
+      "ProjectGuid": "f1aa7651-b55a-41ec-a308-45b45b3505d2",
+      "DisplayName": "ValueContainer",
+      "ColorIndex": 3
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "기타 파일",
+      "ColorIndex": -1
+    },
+    "b8527d34-56ca-42c9-a784-e2cf90d62f73": {
+      "ProjectGuid": "b8527d34-56ca-42c9-a784-e2cf90d62f73",
+      "DisplayName": "ValueContainer",
+      "ColorIndex": 4
+    },
+    "cf75dd2e-b80a-4bb7-9b6b-fca26b83316b": {
+      "ProjectGuid": "cf75dd2e-b80a-4bb7-9b6b-fca26b83316b",
+      "DisplayName": "ValueContainerTests",
+      "ColorIndex": 5
+    }
+  },
+  "NextColorIndex": 6
+}
